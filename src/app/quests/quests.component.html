@@ -1,5 +1,25 @@
 <div>
-    <div *ngFor="let quest of quests;">
-        <span>Lv. {{quest.minLevel}}: {{quest.name.en}} </span>
-    </div>
+    <table>
+        <tr>
+          <th>Min Level</th>
+          <th>Name</th>
+          <th>Penya Reward</th>
+          <th>Exp Reward</th>
+          <th>Slot Reward</th>
+          <th>SP Reward</th>
+          <th>Karma Reward</th>
+          <th>Items Reward</th>
+        </tr>
+        <tr *ngFor="let quest of quests;">
+            <td>Lv. {{quest.minLevel}}</td>
+            <td>{{quest.name.en}}</td>
+            <td>{{quest.endReceiveGold}}</td>
+            <td>{{quest.endReceiveExperience == null ? '' : quest.endReceiveExperience[quest.minLevel] + '% '}}</td>
+            <td>{{quest.endReceiveInventorySpaces}}</td>
+            <td>{{quest.endReceiveSkillPoints}}</td>
+            <td>{{quest.endReceiveKarma}}</td>
+            <td>{{quest.endReceiveItems}}</td>
+        </tr>
+      </table>
+    
 </div>
